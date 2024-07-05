@@ -1,5 +1,7 @@
 %{
     #include "calc.tab.h"
+    #include <math.h>
+
 %}
 
 digit [0-9]
@@ -9,6 +11,7 @@ digit [0-9]
 "+" return ADD;
 "-" return SUB;
 "*" return MUL;
+"^" return POW;
 "/" return DIV;
 "(" return LEFTP;
 ")" return RIGHTP;

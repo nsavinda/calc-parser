@@ -1,10 +1,12 @@
 %{
     #include <stdio.h>
     #include <stdlib.h>
+    #include <math.h>
+
 %}
 
 %token NUMBER
-%token ADD SUB MUL DIV LEFTP RIGHTP EOL
+%token ADD SUB MUL DIV POW LEFTP RIGHTP EOL 
 
 
 %%
@@ -29,6 +31,11 @@ term:
 ;
 
 factor:
+    factor POW power {$$ = pow($1, $3);}
+    | power {$$ = $1;}
+;
+
+power:
     LEFTP expr RIGHTP {$$ = $2;}
     | SUB expr {$$ = -($2);}
     | NUMBER
