@@ -3,6 +3,13 @@
 # Path to your calculator program
 CALC="./calc"
 
+# Check if the calculator program exists
+# If not, build it
+if [ ! -f "$CALC" ]; then
+    echo "Building calculator program..."
+    make
+fi
+
 # Define test cases
 declare -A test_cases=(
     ["3 + 4"]="Result: 7"
