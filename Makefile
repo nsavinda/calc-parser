@@ -18,6 +18,6 @@ clean:
 	rm -f calc calc.tab.c calc.tab.h lex.yy.c
 
 test:
-	bash test.sh
+	bash test.sh 2>> /dev/null
 
 .PHONY: clean test debug
